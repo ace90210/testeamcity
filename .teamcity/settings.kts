@@ -1,16 +1,21 @@
 // .teamcity/settings.kts
 
-import jetbrains.buildServer.configs.kotlin.project
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-/*
- This is the main entry point for your VCS settings.
- It defines the root project.
-*/
 project {
-    // The version property tells TeamCity which API version your scripts are written for.
-    // It should match your server version.
+    // Make sure this version exactly matches your TeamCity server version
     version = "2025.07"
 
-    // Register your build type defined in another file.
-    buildType(HelloWorld)
+    // Define the build type directly inside the project
+    buildType({
+        name = "Hello World Build"
+
+        steps {
+            script {
+                name = "Say Hello"
+                scriptContent = "echo 'Hello, World!'"
+            }
+        }
+    })
 }
