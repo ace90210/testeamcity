@@ -1,5 +1,7 @@
-import jetbrains.buildServer.configs.kotlin.v2025_07.*
-import jetbrains.buildServer.configs.kotlin.v2025_07.buildSteps.script
+// .teamcity/HelloWorld.kt
+
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object HelloWorld : BuildType({
     name = "Hello World Build"
